@@ -30,7 +30,7 @@ import time
 # code = solver.get_result(id)
 result = solver.normal('captcha.png', language=1, lang = 'ru')
 print(result['code'])
-print(balance)  #
+print(balance) 
 
 
 
