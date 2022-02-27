@@ -1,17 +1,4 @@
-# import requests
-# import json
-#
-# r = requests.get('http://rucaptcha.com/res.php', data={'key': '7010f8fed13ad3fde52528cdd956729d',
-#                                                        'action' : 'get',
-#                                                        'id' : '51169183805',
-#                                                        'debug_dump' : '1'
-#                                                        # 'header_acao' : '1',
-#                                                        })
-# print(r.text)
-# print(r.content)
-# print(r)
-#
-#
+
 from twocaptcha import TwoCaptcha
 
 
