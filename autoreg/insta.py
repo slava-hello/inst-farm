@@ -47,15 +47,11 @@ if __name__ == '__main__':
             sleep(1000)
         print(ex)
     sleep(2)
-    # sleep(100)                          #/html/body/div[1]/section/main/div/div/div[1]/div/div[4]/div/div/span
-                                        #/html/body/div[1]/section/main/div/div/div[1]/div/div[4]/div/div/span
-                                        #qF0y9 Igw0E rBNOH eGOV_ _4EzTm yV-Ex HVWg4
-    # b = driver.find_elements((By.CLASS_NAME, 'qF0y9'))
-    # print(b)
-    # print(len(b))
+
     try:
+        sleep(10)
         b = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/section/main/div/div/div[1]/div/div[4]/div/div/span')    #locating span with all fields
-    except:
+    except Exception as ex:
         b = driver.find_element(By.XPATH, '/html/body/div[1]/section/main/div/div/div[1]/div/div[4]/div/div/span')
     a = b.find_elements(By.TAG_NAME, 'select')   #list of input fields
     sleep(2)

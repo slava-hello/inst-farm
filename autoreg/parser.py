@@ -8,6 +8,7 @@ class parser:
     def __init__(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
 
+
     def faces_parser(self):
         self.driver.get('https://thispersondoesnotexist.com/image')
         with open('filename.png', 'wb') as file:
