@@ -75,27 +75,32 @@
 from smsactivate.api import SMSActivateAPI # SMSActivateAPI Содержит все основные инструменты для работы с API SMSActivate
 from time import sleep
 
-sa = SMSActivateAPI('2254efc35fd07b884e13Ad18Afb02Af8')
+def ver_number():
+        sa = SMSActivateAPI('2254efc35fd07b884e13Ad18Afb02Af8')
 
-print(sa.getBalance())
-prices = sa.getPrices(service='ig', country=0)
-try:
-    print(prices['0']) # {'fb': {'cost': 9, 'count': 27934}}
-except:
-    print(prices['message']) # Текст ошибки
+        print(sa.getBalance())
+        prices = sa.getPrices(service='ig', country=0)
+        try:
+            print(prices['0']) # {'fb': {'cost': 9, 'count': 27934}}
+        except:
+            print(prices['message']) # Текст ошибки
 
-number = sa.getNumber(service='ig', country=0) # {'order_id': 000000000, 'phone': 79999999999}
-try:
-    print(number.text) # 79999999999
-except:
-    print(number['message']) # Текст ошибки
-status = sa.getStatus(id = number['id'])
-print(status.text)
-if status.text == 'STATUS_WAIT_CODE':
-    sleep(5)
-if status.text == 'STATUS_OK':
-    a = sa.getFullSms(id = number['id'])
-    print(a)
+        number = sa.getNumber(service='ig', country=0) # {'order_id': 000000000, 'phone': 79999999999}
+        try:
+            print(number.text) # 79999999999
+        except:
+            print(number['message']) # Текст ошибки
+        status = sa.getStatus(id = number['id'])
+        print(status.text)
+        a = True
+        while a:
+            if status.text == 'STATUS_WAIT_CODE':
+                sleep(5)
+            if status.text == 'STATUS_OK':
+                a = False
+                sms = sa.getFullSms(id = number['id'])
+                print(sms)
+        return [number, sms]
 
 # try:
 #     print(status['price']) # 4.00
