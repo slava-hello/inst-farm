@@ -72,7 +72,7 @@
 
 
 
-from api import SMSActivateAPI # SMSActivateAPI Содержит все основные инструменты для работы с API SMSActivate
+from smsactivate.api import SMSActivateAPI # SMSActivateAPI Содержит все основные инструменты для работы с API SMSActivate
 from time import sleep
 
 sa = SMSActivateAPI('2254efc35fd07b884e13Ad18Afb02Af8')
