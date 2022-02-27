@@ -1,0 +1,6 @@
+selenium,
+pymysql,
+twocaptcha,
+mimesis,
+webdriver_manager,
+smsactivate
