@@ -1,5 +1,4 @@
 from selenium import webdriver
-# from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from time import sleep
 import random
@@ -14,8 +13,8 @@ if __name__ == '__main__':
 
     #setting up sign in variables
 
-    # phone = sms_activate.get_number()
-    number = '+375295424962'  #'+' + str(phone[1]['phone'])
+    phone = sms_activate.get_number()
+    number = '+' + str(phone[1]['phone']) #'+375295424962'  #
     name = generators.get_full_name()
     username = generators.get_nickname()
     password = generators.get_password()
@@ -75,12 +74,12 @@ if __name__ == '__main__':
         driver.find_element(By.XPATH, '/html/body/div[1]/div/div/section/main/div/div/div[1]/div/div[6]/button').click()
 
     sleep(5)
-    # try:
-    #     code = sms_activate.ver_code(*phone)
-    #     print(code)
-    # except Exception as ex:
-    #     print('e4')
-    #     print(ex)
+    try:
+        code = sms_activate.ver_code(*phone)
+        print(code)
+    except Exception as ex:
+        print('e4')
+        print(ex)
     trash = driver.find_element(By.CSS_SELECTOR, 'form')
     trash.find_element(By.CSS_SELECTOR, 'input').send_keys()
     sleep(2)
