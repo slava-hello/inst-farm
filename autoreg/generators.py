@@ -21,8 +21,8 @@ def get_full_name():
 
 def get_nickname():
     addon = "_.1234__..567890" + string.ascii_letters
-    out = ''
-    for i in range(random.randint(7,10)):
+    out = string.ascii_letters[random.randint(0,len(string.ascii_letters) - 1)]
+    for i in range(random.randint(7,9)):
         out += addon[random.randint(0,len(addon) - 1)]
     return out
 def get_mailname():

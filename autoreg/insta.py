@@ -5,6 +5,7 @@ from time import sleep
 import random
 import generators
 from webdriver_manager.chrome import ChromeDriverManager
+import sms_activate
 
 
 if __name__ == '__main__':
@@ -12,7 +13,9 @@ if __name__ == '__main__':
     driver.get('https://www.instagram.com/accounts/emailsignup/')  #getting signing up page
 
     #setting up sign in variables
-    number = '+375295424962'
+
+    # phone = sms_activate.get_number()
+    number = '+375295424962'  #'+' + str(phone[1]['phone'])
     name = generators.get_full_name()
     username = generators.get_nickname()
     password = generators.get_password()
@@ -22,7 +25,7 @@ if __name__ == '__main__':
     try:
         driver.find_element(By.XPATH, '/html/body/div[4]/div/div/button[1]').click()   #trying to accept cookies
     except:
-        print('a')
+        print('e1')
     sleep(2)
 
     try:
@@ -39,11 +42,12 @@ if __name__ == '__main__':
         # print(a)
     except Exception as ex:
         try:
-            print('a')
+            print('e2')
             ca = driver.find_element(By.ID, 'ssfErrorAlert').text    #locating error occured
             print(ca)
             print('a')
         except:
+            print('e3')
             sleep(1000)
         print(ex)
     sleep(2)
@@ -70,8 +74,21 @@ if __name__ == '__main__':
     except:
         driver.find_element(By.XPATH, '/html/body/div[1]/div/div/section/main/div/div/div[1]/div/div[6]/button').click()
 
-    sleep(100)
-    sleep(100)
+    sleep(5)
+    # try:
+    #     code = sms_activate.ver_code(*phone)
+    #     print(code)
+    # except Exception as ex:
+    #     print('e4')
+    #     print(ex)
+    trash = driver.find_element(By.CSS_SELECTOR, 'form')
+    trash.find_element(By.CSS_SELECTOR, 'input').send_keys()
+    sleep(2)
+    trash.find_element(By.CSS_SELECTOR, 'button').click()
+    while True:
+        sleep(100)
     # fullName
     # username
     # password
+    #confirmationCode
+    #/html/body/div[1]/section/main/div/div/div[1]/div/div/div/form/div[1]/div/label/input
