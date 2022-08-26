@@ -6,12 +6,13 @@ import random
 import generators
 from webdriver_manager.chrome import ChromeDriverManager
 from twocaptcha import TwoCaptcha
+from config import key
 
 
 def captcha(section, form):
     config = {
         'server':           'RuCaptcha.com',
-        'apiKey':           '7010f8fed13ad3fde52528cdd956729d',
+        'apiKey':           key,
     }
     solver = TwoCaptcha(**config)
     balance = solver.balance()
@@ -22,7 +23,7 @@ def captcha(section, form):
         sleep(2)
         config = {
             'server':           'RuCaptcha.com',
-            'apiKey':           '7010f8fed13ad3fde52528cdd956729d',
+            'apiKey':           key,
         }
         solver = TwoCaptcha(**config)
 
