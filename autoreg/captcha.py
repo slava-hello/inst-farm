@@ -1,10 +1,11 @@
 
 from twocaptcha import TwoCaptcha
+from config import key
 
 
 config = {
     'server':           'RuCaptcha.com',
-    'apiKey':           '7010f8fed13ad3fde52528cdd956729d',
+    'apiKey':           key,
 }
 solver = TwoCaptcha(**config)
 balance = solver.balance()
