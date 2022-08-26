@@ -14,7 +14,7 @@ if __name__ == '__main__':
     #setting up sign in variables
 
     phone = sms_activate.get_number()
-    number = '+' + str(phone[1]['phone']) #'+375295424962'  #
+    number = '+' + str(phone[1]['phone']) 
     name = generators.get_full_name()
     username = generators.get_nickname()
     password = generators.get_password()
